@@ -1,0 +1,6 @@
+http://magebase.com/magento-tutorials/5-useful-tricks-for-your-magento-local-xml/
+
+http://magebase.com/magento-tutorials/demystifying-magentos-layout-xml-part-1/
+
+http://magebase.com/magento-tutorials/digging-deeper-into-magentos-layout-xml-part-2/
+

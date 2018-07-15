@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+  <default>
+    <reference name="left">
+      <block type="cms/block" name="left.delivery">
+        <action method="setBlockId">
+          <block_id>my_block</block_id>
+        </action>
+      </block>
+    </reference>
+  </default>
+</layout>

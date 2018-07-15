@@ -1,0 +1,79 @@
+Instructions here: https://www.creare.co.uk/blog/magento/setting-up-gulp-with-magento-1-9
+
+In command line, browse into /skin/frontend/your_package/your_theme/
+npm init
+
+package.json is then created
+
+install gulp
+npm install gulp --save-dev
+gulp -v to check it worked
+
+create gulpfile.js in same directory as package.json
+
+create config.rb file in same directory
+use this code:
+## Path to assets
+http_path = "/skin/frontend/your_package/your_theme/"
+css_dir = "css"
+sass_dir = "scss"
+images_dir = "images"
+javascripts_dir = "js"
+ 
+## Fallback path
+add_import_path "../../rwd/default/scss"
+ 
+## Enable relative assets
+relative_assets = true
+ 
+## Output style
+output_style = :expanded #:expanded / :nested / :compact / :compressed
+environment = :development # :production / :development
+ 
+## SASS Options
+line_comments = true
+
+Install gulp compass to comile your sass
+npm install gulp-compass --save-dev
+
+In the gulpfile.js add in the code
+// Load plugins
+var
+gulp = require('gulp'),
+compass = require('gulp-compass');
+ 
+var paths = {
+scss: ['scss/*.scss', 'scss/*/*.scss']
+};
+ 
+// Compass task
+gulp.task('compass', function() {
+gulp.src('scss/*.scss')
+.pipe(compass({
+config_file: 'config.rb',
+css: 'css',
+sass: 'scss'
+}))
+.pipe(gulp.dest('css'));
+});
+ 
+// Default task
+gulp.task('default', function() {
+gulp.watch(paths.scss, ['compass']);
+});
+
+
+
+Copy over the SCSSÂ folder from /skin/frontend/rwd/default/ into your new package and theme. From your theme, you can delete the following folders from inside the scss folder:
+
+Core
+Function
+Layout
+Mixin
+Module
+Override
+Vendor
+
+
+cd to your sass directory and run the command gulp
+
